@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Camera Dashboard</title>
+<style>
+  body { font-family: "Segoe UI", sans-serif; text-align:center; padding:100px; background:#f8f9fa; }
+  input { padding:10px; margin:10px; font-size:16px; width:200px; }
+  button { padding:10px 20px; font-size:16px; border:none; border-radius:6px; background:#0078d7; color:white; cursor:pointer; }
+  button:hover{ background:#005fa3; }
+  p { color:red; }
+</style>
+</head>
+<body>
+  <h1>Login to Camera Dashboard</h1>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+  <p id="error"></p>
+
+<script>
+const credentials = {
+  "alexander": "mySecretPassword123"  // Replace with your desired username & password
+};
+
+function login() {
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+  if(credentials[user] && credentials[user] === pass){
+    // Login successful, redirect to dashboard
+    window.location.href = "dashboard.html";
+  } else {
+    document.getElementById('error').innerText = "❌ Invalid username or password";
+  }
+}
+</script>
+</body>
+</html>
